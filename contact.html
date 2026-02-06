@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <!-- Google anaylitics -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RSH1RLZC3Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-RSH1RLZC3Y');
+    </script>
+    <!-- Google anatlitics -->
+     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Contact Me - Jemit Vaghasiya</title>
+    <style>
+        /* Reset */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #4facfe 0%, #0a4a4e 100%);
+            color: #2c3e50;
+            transition: background 0.3s, color 0.3s;
+            min-height: 100vh;
+        }
+
+        /* Dark mode */
+        body.dark {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #eee;
+        }
+
+        /* Glassy Header */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        body.dark header {
+            background: rgba(22, 33, 62, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Matte header when menu is open */
+        header.menu-open {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: none;
+        }
+
+        body.dark header.menu-open {
+            background: rgba(22, 33, 62, 0.95);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo Container */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .logo-divider {
+            width: 2px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .logo-subtitle {
+            font-size: 1rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        header.menu-open .logo,
+        header.menu-open .logo-subtitle {
+            color: #2c3e50;
+        }
+
+        body.dark header.menu-open .logo,
+        body.dark header.menu-open .logo-subtitle {
+            color: #eee;
+        }
+
+        header.menu-open .logo-divider {
+            background: rgba(44, 62, 80, 0.5);
+        }
+
+        body.dark header.menu-open .logo-divider {
+            background: rgba(238, 238, 238, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        /* Hamburger menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            background: transparent;
+            border: none;
+            padding: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            transition: 0.3s;
+        }
+
+        header.menu-open .menu-toggle span {
+            background: #2c3e50;
+        }
+
+        body.dark header.menu-open .menu-toggle span {
+            background: #eee;
+        }
+
+        .menu-overlay {
+            display: none;
+        }
+
+        /* Main content with background */
+        .contact-section {
+            position: relative;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Dark overlay for better readability */
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.65);
+            z-index: 1;
+        }
+
+        body.dark .contact-section::before {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-align: center;
+            color: white;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 3rem;
+            font-weight: 500;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Two Column Layout */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        /* LEFT SIDE - Contact Form */
+        .left-section {
+            position: sticky;
+            top: 100px;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark .contact-form {
+            background: rgba(22, 33, 62, 0.5);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.7rem;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.3rem;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ffd700;
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #2c3e50;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            background: linear-gradient(135deg, #ffed4e, #fff59d);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+        }
+
+        .submit-btn:active:not(:disabled) {
+            transform: translateY(-1px);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: rgba(76, 175, 80, 0.9);
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 1.5rem;
+            font-weight: 600;
+            animation: slideIn 0.5s ease;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /* Error Message */
+        .error-message {
+            display: none;
+            background: rgba(244, 67, 54, 0.9);
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 1.5rem;
+            font-weight: 600;
+            animation: slideIn 0.5s ease;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RIGHT SIDE - Talk About Cards */
+        .right-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .talk-about-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .talk-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .talk-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark .talk-card {
+            background: rgba(22, 33, 62, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .talk-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 215, 0, 0.5);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .talk-card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .talk-card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.7rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .talk-card-desc {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: #ffd700;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 1.1rem;
+            color: white;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #ffd700;
+        }
+
+        /* Glassy Footer */
+       footer {
+        
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        body.dark footer {
+            background: rgba(22, 33, 62, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            font-size: 1.8rem;
+            transition: transform 0.3s;
+            text-decoration: none;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .social-links a:hover {
+            transform: scale(1.3) rotate(10deg);
+        }
+
+        footer p {
+            color: white;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        /* Responsive */
+        @media (max-width: 968px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .left-section {
+                position: static;
+            }
+
+            .talk-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+@media (max-width: 768px) {
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+
+        width: 250px;
+        max-width: 80vw;
+        height: 100vh;
+
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: none;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 2rem;
+
+        transform: translateX(100%);   /* 🔥 fully hidden */
+        transition: transform 0.3s ease;
+
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);      /* 🔥 slides in clean */
+    }
+
+}
+
+            body.dark .nav-links {
+                background: rgba(22, 33, 62, 0.95);
+                border-left: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-links a {
+                color: #2c3e50;
+            }
+
+            body.dark .nav-links a {
+                color: #eee;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-overlay {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s;
+                z-index: 98;
+            }
+
+            .menu-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .talk-about-title {
+                font-size: 1.8rem;
+            }
+
+            .form-title {
+                font-size: 1.7rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+
+            .contact-details {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .logo-subtitle {
+                display: none;
+            }
+
+            .logo-divider {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .page-subtitle {
+                font-size: 1rem;
+            }
+
+            .talk-about-title {
+                font-size: 1.5rem;
+            }
+
+            .talk-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .talk-card {
+                padding: 1.5rem;
+            }
+
+            .talk-card-icon {
+                font-size: 3rem;
+            }
+
+            .talk-card-title {
+                font-size: 1.2rem;
+            }
+
+            .talk-card-desc {
+                font-size: 0.9rem;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .form-title {
+                font-size: 1.5rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 0.9rem 1rem;
+            }
+
+            .submit-btn {
+                padding: 1rem;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <header id="header">
+        <nav>
+            <!-- LEFT - Logo -->
+            <div class="logo-container">
+                <div class="logo">JV</div>
+                <div class="logo-divider"></div>
+                <div class="logo-subtitle">Jemit Vaghasiya</div>
+            </div>
+
+            <!-- CENTER - Hamburger Menu (Mobile Only) -->
+            <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="Home.html" onclick="closeMenu()">Home</a></li>
+                <li><a href="education.html" onclick="closeMenu()">Education</a></li>
+                <li><a href="projects.html" onclick="closeMenu()">Projects</a></li>
+                <li><a href="certificate.html" onclick="closeMenu()">Certifications</a></li>
+                <li><a href="contact.html" onclick="closeMenu()">Contact Me</a></li>
+            </ul>
+
+            <!-- RIGHT - Theme Toggle -->
+            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
+        </nav>
+    </header>
+
+    <!-- Menu Overlay (Mobile Only) -->
+    <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+
+    <!-- Main Content -->
+    <section class="contact-section">
+        <div class="container">
+            <h1 class="page-title">LET'S CONNECT</h1>
+            <p class="page-subtitle">I'd love to hear from you!</p>
+
+            <!-- Two Column Layout -->
+
+    <div class="contact-content">
+
+        <!-- LEFT SIDE - Contact Form -->
+        <div class="left-section">
+            <form action="#" method="POST" class="contact-form" id="contactForm">
+                <h2 class="form-title">Get In Touch</h2>
+
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    📨 Send Connection
+                </button>
+
+                <div class="success-message" id="successMessage" style="display:none;">
+                    ✅ Message sent successfully! I'll get back to you soon.
+                </div>
+
+                <div class="error-message" id="errorMessage" style="display:none;">
+                    ❌ Oops! Something went wrong. Please try again.
+                </div>
+            </form>
+        </div>
+
+        <!-- RIGHT SIDE CARDS -->
+        <div class="right-section">
+            <h2 class="talk-about-title">Let's Talk About</h2>
+            <div class="talk-cards">
+                <div class="talk-card">
+                    <div class="talk-card-icon">💻</div>
+                    <h3 class="talk-card-title">Web Development</h3>
+                    <p class="talk-card-desc">Building modern, responsive websites and web applications</p>
+                </div>
+
+                <div class="talk-card">
+                    <div class="talk-card-icon">🤝</div>
+                    <h3 class="talk-card-title">Collaboration</h3>
+                    <p class="talk-card-desc">Working together on exciting projects and ideas</p>
+                </div>
+
+                <div class="talk-card">
+                    <div class="talk-card-icon">🎯</div>
+                    <h3 class="talk-card-title">Internship Opportunities</h3>
+                    <p class="talk-card-desc">Open to learning and growing with your team</p>
+                </div>
+
+                <div class="talk-card">
+                    <div class="talk-card-icon">☕</div>
+                    <h3 class="talk-card-title">Friendly Chat</h3>
+                    <p class="talk-card-desc">Just want to say hi? Let's connect!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT INFO -->
+    <div class="contact-info">
+        <h3>Or reach me directly:</h3>
+        <div class="contact-details">
+            <div class="contact-item">
+                📧 <a href="mailto:jemitvaghasiya07@gmail.com">jemitvaghasiya07@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                💼 <a href="https://www.linkedin.com/in/jemitvaghasiya/" target="_blank">LinkedIn Profile</a>
+            </div>
+            <div class="contact-item">
+                🔗 <a href="https://github.com/Vaghasiya-Jemit-kanaiyalal" target="_blank">GitHub Profile</a>
+            </div>
+        </div>
+    </div>
+
+</main>
+    <!-- FOOTER -->
+   <footer>
+        <div class="social-links">
+            <a href="https://github.com/Vaghasiya-Jemit-kanaiyalal" target="_blank" title="GitHub">🔗</a>
+            <a href="https://www.linkedin.com/in/jemitvaghasiya/" target="_blank" title="LinkedIn">💼</a>
+            <a href="mailto:jemitvaghasiya07@gmail.com" title="Email">📧</a>
+            <a href="https://x.com/Jemit_Vaghasiya?t=oEFa4aZnasNAfRZT4tLyRQ&s=09" target="_blank" title="Twitter">🐦</a>
+        </div>
+        <p>&copy; 2026 Jemit Vaghasiya. All Rights Reserved.</p>
+    </footer>
+      
+
+    <!-- SCRIPT -->
+    <script>
+        // =========================
+        // Theme Toggle Function
+        // =========================
+        function toggleTheme() {
+            const body = document.body;
+            const themeBtn = document.getElementById('themeBtn');
+
+            body.classList.toggle('dark');
+
+            if (body.classList.contains('dark')) {
+                themeBtn.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeBtn.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Update icon on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const themeBtn = document.getElementById('themeBtn');
+            themeBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        });
+
+        // =========================
+        // Mobile Menu Toggle
+        // =========================
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.getElementById('menuToggle');
+            const menuOverlay = document.getElementById('menuOverlay');
+            const header = document.getElementById('header');
+
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            header.classList.toggle('menu-open');
+        }
+
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.getElementById('menuToggle');
+            const menuOverlay = document.getElementById('menuOverlay');
+            const header = document.getElementById('header');
+
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            header.classList.remove('menu-open');
+        }
+
+        document.addEventListener('click', function (event) {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.getElementById('menuToggle');
+
+            if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                closeMenu();
+            }
+        });
+
+        // =========================
+        // Formspree AJAX Submit (NO REDIRECT)
+        // =========================
+        document.getElementById("contactForm").addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const submitBtn = document.getElementById("submitBtn");
+            const successMessage = document.getElementById("successMessage");
+            const errorMessage = document.getElementById("errorMessage");
+
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Sending...";
+
+            const formData = new FormData(this);
+
+            // ⭐⭐⭐ ENTER YOUR FORMSPREE FORM ID BELOW ⭐⭐⭐
+            // Replace YOUR_ID_HERE with your real Formspree form endpoint
+            const FORMSPREE_URL = "https://formspree.io/f/mzznvojp";
+
+            const response = await fetch(FORMSPREE_URL, {
+                method: "POST",
+                body: formData,
+                headers: { "Accept": "application/json" }
+            });
+
+            if (response.ok) {
+                successMessage.style.display = "block";
+                errorMessage.style.display = "none";
+                this.reset();
+
+                setTimeout(() => {
+                    successMessage.style.display = "none";
+                }, 4000);
+
+            } else {
+                errorMessage.style.display = "block";
+                successMessage.style.display = "none";
+
+                setTimeout(() => {
+                    errorMessage.style.display = "none";
+                }, 4000);
+            }
+
+            submitBtn.disabled = false;
+            submitBtn.innerText = "📨 Send Connection";
+        });
+    </script>
+
+</body>
+
+</html>
