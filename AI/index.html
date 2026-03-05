@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <title>Jemit Vaghasiya</title>
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <nav>
+            <!-- LEFT - Logo -->
+            <div class="logo-container">
+                <div class="logo">JV</div>
+                <div class="logo-divider"></div>
+                <div class="logo-subtitle">Jemit Vaghasiya</div>
+            </div>
+
+            <!-- CENTER - Hamburger Menu (Mobile Only) -->
+            <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+                <li><a href="education.html" onclick="closeMenu()">Education</a></li>
+                <li><a href="projects.html" onclick="closeMenu()">Projects</a></li>
+                <li><a href="certificate.html" onclick="closeMenu()">Certifications</a></li>
+                <li><a href="contact.html" onclick="closeMenu()">Contact Me</a></li>
+            </ul>
+
+            <!-- RIGHT - Theme Toggle -->
+            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
+        </nav>
+    </header>
+
+    <!-- Menu Overlay (Mobile Only) -->
+    <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+
+    <!-- Animated Background -->
+    <div class="stars" id="stars">
+        <!-- Glowing Orbs for Night Mode -->
+        <div class="glow-orb"></div>
+        <div class="glow-orb"></div>
+        <div class="glow-orb"></div>
+
+        <!-- Clouds for Light Mode -->
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+    </div>
+
+    <!-- Shooting Stars (Night Mode Only) -->
+    <div class="shooting-star" style="top: 15%; left: 85%; animation-delay: 0s;"></div>
+    <div class="shooting-star" style="top: 35%; left: 70%; animation-delay: 2s;"></div>
+    <div class="shooting-star" style="top: 55%; left: 90%; animation-delay: 4s;"></div>
+
+    <!-- Main Content -->
+    <div class="container" id="home">
+        <!-- Profile Image -->
+        <div class="profile-wrapper">
+            <div class="profile-border">
+                <img src="My photo.jpg" alt="Jemit Vaghasiya" class="profile-img" id="profileImg">
+            </div>
+        </div>
+
+        <!-- Name -->
+
+     
+        <h1>JEMIT VAGHASIYA</h1>
+
+        <!-- Typewriter Effect -->
+        <div class="typewriter-container">
+            <span class="typewriter" id="typewriter"></span>
+        </div>
+
+        <!-- Skill Badges -->
+        <div class="skills-container">
+            <div class="skill-badge">Frontend</div>
+            <div class="skill-badge">PHP</div>
+            <div class="skill-badge">JAVA</div>
+            <div class="skill-badge">Work with AI</div>
+        </div>
+
+        <!-- Bio Text -->
+        <p class="bio-text">
+            I'm a passionate developer who enjoys creating modern and good-looking web experiences.
+            I really like adding smart, smooth animations that make websites feel alive. I turn ideas
+            into clean and fast digital products using Full-Stack skills and Data Analytics. My goal
+            is to build useful projects that look great, work well, and help people in the real world.
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/Vaghasiya-Jemit-kanaiyalal" target="_blank" title="GitHub">🔗</a>
+            <a href="https://www.linkedin.com/in/jemitvaghasiya/" target="_blank" title="LinkedIn">💼</a>
+            <a href="mailto:jemitvaghasiya07@gmail.com" title="Email">📧</a>
+            <a href="https://x.com/Jemit_Vaghasiya?t=oEFa4aZnasNAfRZT4tLyRQ&s=09" target="_blank" title="Twitter">🐦</a>
+        </div>
+        <p>&copy; 2025 Jemit Vaghasiya. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Generate Moving Stars for Night Mode
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 3 + 1;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * -100 + '%';
+            star.style.animationDelay = Math.random() * 20 + 's';
+            star.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Typewriter Effect
+        const skills = [
+            "Frontend Developer 💻",
+            "MySQL 🎨",
+            "Data Analyst 📊",
+            "PHP Developer",
+            "Open For Internship",
+            "Problem Solver 🚀"
+        ];
+
+        let skillIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typewriterElement = document.getElementById('typewriter');
+
+        function typeWriter() {
+            const currentSkill = skills[skillIndex];
+
+            if (isDeleting) {
+                typewriterElement.textContent = currentSkill.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterElement.textContent = currentSkill.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentSkill.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                skillIndex = (skillIndex + 1) % skills.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(typeWriter, typeSpeed);
+        }
+
+        // Start typewriter on load
+        window.addEventListener('load', () => {
+            setTimeout(typeWriter, 1000);
+        });
+
+        // Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const themeBtn = document.getElementById('themeBtn');
+            const profileImg = document.getElementById('profileImg');
+
+            body.classList.toggle('light-mode');
+
+            if (body.classList.contains('light-mode')) {
+                themeBtn.textContent = '☀️';
+                profileImg.src = 'My photo.jpg';
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeBtn.textContent = '🌙';
+                profileImg.src = 'My photo.jpg';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Load saved theme
+        window.addEventListener('load', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                document.getElementById('themeBtn').textContent = '☀️';
+            }
+        });
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.getElementById('menuToggle');
+            const menuOverlay = document.getElementById('menuOverlay');
+
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.getElementById('menuToggle');
+            const menuOverlay = document.getElementById('menuOverlay');
+
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('active');
+            menuOverlay.classList.remove('active');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function (event) {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.getElementById('menuToggle');
+            const menuOverlay = document.getElementById('menuOverlay');
+
+            if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                closeMenu();
+            }
+        });
+    </script>
+</body>
+
+</html>
