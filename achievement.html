@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <!-- Google anaylitics -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RSH1RLZC3Y"></script>
@@ -14,16 +13,16 @@
         gtag('config', 'G-RSH1RLZC3Y');
     </script>
     <!-- Google anatlitics -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="logo.png">
-    <title>Jemit Vaghasiya</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-
+    <title>Achievements - Jemit Vaghasiya</title>
     <style>
         /* Reset */
         * {
@@ -198,108 +197,125 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 4rem 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
             min-height: calc(100vh - 200px);
         }
 
-        .content h1 {
+        .page-title {
             font-size: 3.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+            font-weight: 900;
+            text-align: center;
             color: white;
-            font-weight: 900;
-            letter-spacing: -1px;
-        }
-
-        .content h1 .name {
-            color: #ffd700;
-            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        .content .role {
-            font-size: 1.6rem;
-            color: rgba(148, 240, 154, 0.95);
-            margin-bottom: 2rem;
-            min-height: 40px;
-            font-weight: 600;
+        .page-subtitle {
+            font-size: 1.3rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 4rem;
+            font-weight: 500;
+        }
+
+        /* Certifications Grid */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        /* Certificate Card */
+        .certificate-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        body.dark .certificate-card {
+            background: rgba(22, 33, 62, 0.4);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+
+        .certificate-icon {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .certificate-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 1rem;
             letter-spacing: 0.5px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
-        /* Typewriter cursor */
-        .content .role::after {
-            color: rgb(7, 181, 250);
-            content: '|';
-            animation: blink 1s infinite;
-            margin-left: 2px;
-            font-weight: 300;
+        .certificate-issuer {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 1rem;
+            letter-spacing: 0.3px;
         }
 
-        @keyframes blink {
-
-            0%,
-            50% {
-                opacity: 1;
-            }
-
-            51%,
-            100% {
-                opacity: 0;
-            }
-        }
-
-        /* About paragraph - SIGMA STYLE */
-        .content .about {
+        .certificate-description {
             font-family: 'Inter', 'Poppins', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.8;
             color: rgba(255, 255, 255, 0.98);
-            margin-top: 2rem;
-            text-align: left;
+            margin-bottom: 2rem;
             font-weight: 600;
             letter-spacing: 0.5px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
             word-spacing: 2px;
         }
 
-        body.dark .content .about {
+        body.dark .certificate-description {
             color: rgba(255, 255, 255, 1);
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
 
-        /* Photo section */
-        .photo-section {
-            display: flex;
-            justify-content: center;
+        /* View Certificate Button */
+        .view-certificate-btn {
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #2c3e50;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            margin-top: auto;
         }
 
-        .photo-wrapper {
-            width: 350px;
-            height: 350px;
-            border-radius: 50%;
-            transform: translateY(-10px);
-            position: relative;
-            overflow: hidden;
-
-            /* subtle border */
-            border: 3px solid rgba(255, 255, 255, 0.35);
-
-            /* depth */
-            box-shadow:
-                0 10px 30px rgba(0, 0, 0, 0.35),
-                0 0 0 6px rgba(255, 255, 255, 0.05);
-        }
-
-        .photo-wrapper img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center 35%;
-            filter: contrast(1.05) brightness(1.03) saturate(1.05);
+        .view-certificate-btn:hover {
+            background: linear-gradient(135deg, #ffed4e, #fff59d);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
         }
 
         /* Glassy Footer */
@@ -347,11 +363,6 @@
             .menu-toggle {
                 display: flex;
             }
-
-            /* .photo-wrapper img {
-                transform: translateX(20px) translateY(5px) scale(1.6);
-            } */
-
 
             .nav-links {
                 position: fixed;
@@ -405,28 +416,29 @@
                 visibility: visible;
             }
 
-            .container {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding: 2rem 1rem;
-            }
-
-            .content h1 {
+            .page-title {
                 font-size: 2.5rem;
             }
 
-            .content .role {
-                font-size: 1.3rem;
+            .page-subtitle {
+                font-size: 1.1rem;
             }
 
-            .content .about {
-                text-align: left;
-                font-size: 1.05rem;
+            .certifications-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            .photo-wrapper {
-                width: 280px;
-                height: 280px;
+            .certificate-name {
+                font-size: 1.6rem;
+            }
+
+            .certificate-issuer {
+                font-size: 1.1rem;
+            }
+
+            .certificate-description {
+                font-size: 1rem;
             }
 
             .logo-subtitle {
@@ -439,28 +451,44 @@
         }
 
         @media (max-width: 480px) {
-            .content h1 {
+            .page-title {
                 font-size: 2rem;
             }
 
-            .content .role {
-                font-size: 1.1rem;
-            }
-
-            .content .about {
+            .page-subtitle {
                 font-size: 1rem;
             }
 
-            .photo-wrapper {
-                width: 240px;
-                height: 240px;
+            .certificate-card {
+                padding: 2rem;
+            }
+
+            .certificate-icon {
+                font-size: 3.5rem;
+            }
+
+            .certificate-name {
+                font-size: 1.4rem;
+            }
+
+            .certificate-issuer {
+                font-size: 1rem;
+            }
+
+            .certificate-description {
+                font-size: 0.95rem;
+            }
+
+            .view-certificate-btn {
+                padding: 0.9rem 2rem;
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Header -->
+    <!-- Header Navigation -->
     <header id="header">
         <nav>
             <!-- LEFT - Logo -->
@@ -479,10 +507,11 @@
 
             <!-- Navigation Links -->
             <ul class="nav-links" id="navLinks">
-                <li><a href="Home.html" onclick="closeMenu()">Home</a></li>
+                <li><a href="index.html" onclick="closeMenu()">Home</a></li>
                 <li><a href="education.html" onclick="closeMenu()">Education</a></li>
                 <li><a href="projects.html" onclick="closeMenu()">Projects</a></li>
-                <li><a href="certificate.html" onclick="closeMenu()">Certifications</a></li>
+                <li><a href="achievement.html" onclick="closeMenu()">Achievements</a></li>
+                <li><a href="certification.html" onclick="closeMenu()">Certifications</a></li>
                 <li><a href="contact.html" onclick="closeMenu()">Contact Me</a></li>
             </ul>
 
@@ -497,21 +526,92 @@
     <!-- Main Content -->
     <main>
         <div class="container">
-            <div class="content">
-                <h1>Hi, I'm <span class="name">Jemit</span></h1>
-                <div class="role" id="typewriter"></div>
-                <p class="about">
-                    I'm a passionate developer who enjoys creating modern and good-looking web experiences.
-                    I really like adding smart, smooth animations that make websites feel alive. I turn ideas
-                    into clean and fast digital products using Full-Stack skills and Data Analytics. My goal
-                    is to build useful projects that look great, work well, and help people in the real world.
-                </p>
-            </div>
+            <h1 class="page-title">MY ACHIEVEMENTS</h1>
+            <p class="page-subtitle">Professional Achievements & Credentials</p>
 
-            <div class="photo-section">
-                <div class="photo-wrapper">
-                    <img src="My photo.jpeg" alt="Profile">
+            <div class="certifications-grid">
+
+                <!-- Certificate Card 1 -->
+                <div class="certificate-card">
+                    <div class="certificate-icon">💻</div>
+                    <h2 class="certificate-name">Mind Sprint Hackathon </h2>
+                    <h3 class="certificate-issuer">Unstop</h3>
+                    <p class="certificate-description">
+                        A Blood Donation website , developed to streamline the process of connecting blood donors with
+                        recipients, ensuring timely and efficient blood donations.
+                    </p>
+                    <a href="https://unstop.com/certificate-preview/9b30bd69-a803-43da-8343-555a29f08410?utm_campaign=site-emails"
+                        target="_blank" class="view-certificate-btn">
+                        📜 View Certificate
+                    </a>
                 </div>
+
+                   
+
+                 <div class="certificate-card">
+                    <div class="certificate-icon">💻</div>
+                    <h2 class="certificate-name"> DU HACKS</h2>
+                    <h3 class="certificate-issuer">DDU - GDG</h3>
+                    <p class="certificate-description">
+                        An AI-based scholarship recommendation system that helps students find scholarships matching
+                        their profile.
+                        It shows the percentage of eligibility for each scholarship and explains the reasons if a
+                        scholarship does not match.
+                        It was created during DU Hacks to make scholarship discovery easier and more transparent for
+                        students.</p>
+                    <a href="Certi/DU'Hacks.png" target="_blank" class="view-certificate-btn">
+                        📜 View Certificate
+                    </a>
+                </div>
+
+                <div class="certificate-card">
+                    <div class="certificate-icon">💻</div>
+                    <h2 class="certificate-name">Code Quest </h2>
+                    <h3 class="certificate-issuer">DEPSTAR</h3>
+                    <p class="certificate-description">
+                        A Hackathon type event including coding in first round and offline coding for competative
+                        programming in second round.
+                    </p>
+                    <a href="Certi/CodeQuest.pdf" target="_blank" class="view-certificate-btn">
+                        📜 View Certificate
+                    </a>
+                </div>
+
+
+                <!-- Certificate Card 2 -->
+                <div class="certificate-card">
+                    <div class="certificate-icon">🎓</div>
+                    <h2 class="certificate-name">Education with AI tools</h2>
+                    <h3 class="certificate-issuer">Webinar</h3>
+                    <p class="certificate-description">
+                        Learnt how to use Ai tools to make efficent work and consume less time in this "AI World".
+                    </p>
+                    <a href="Certi/AI.pdf" target="_blank" class="view-certificate-btn">
+                        📜 View Certificate
+                    </a>
+                </div>
+
+
+
+                <!-- Certificate Card 3 -->
+                <div class="certificate-card">
+                    <div class="certificate-icon">🔐</div>
+                    <h2 class="certificate-name">Cybersecurity Awareness</h2>
+                    <h3 class="certificate-issuer">Seminar</h3>
+                    <p class="certificate-description">
+                        Understanding cybersecurity principles, threat identification and importance of security.
+                        <a href="Certi/cyber.pdf" target="_blank" class="view-certificate-btn">
+                            📜 View Certificate
+                        </a>
+                </div>
+
+                <!-- Certificate Card 5 -->
+             
+
+
+                <!-- Certificate Card 6 -->
+               
+
             </div>
         </div>
     </main>
@@ -598,37 +698,6 @@
                 closeMenu();
             }
         });
-
-        // Typewriter effect
-        const roles = ['Frontend Developer 💻', 'PHP Developer 📊', 'Backend Developer 🧠', 'Problem Solver 🚀', 'Tech Enthusiast', 'Open For Internship'];
-        let roleIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typewriter = document.getElementById('typewriter');
-
-        function type() {
-            const currentRole = roles[roleIndex];
-
-            if (isDeleting) {
-                typewriter.textContent = currentRole.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typewriter.textContent = currentRole.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            if (!isDeleting && charIndex === currentRole.length) {
-                setTimeout(() => isDeleting = true, 2000);
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                roleIndex = (roleIndex + 1) % roles.length;
-            }
-
-            const speed = isDeleting ? 40 : 100;
-            setTimeout(type, speed);
-        }
-
-        type();
     </script>
 </body>
 
