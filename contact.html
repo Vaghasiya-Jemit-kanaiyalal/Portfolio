@@ -2,17 +2,21 @@
 <html lang="en">
 
 <head>
-     <!-- Google anaylitics -->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RSH1RLZC3Y"></script>
+    <!-- Config (private keys) -->
+    <script src="config.js"></script>
+    <!-- Google Analytics -->
     <script>
+        (function() {
+            const s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=' + CONFIG.GOOGLE_ANALYTICS_ID;
+            document.head.appendChild(s);
+        })();
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
-        gtag('config', 'G-RSH1RLZC3Y');
+        gtag('config', CONFIG.GOOGLE_ANALYTICS_ID);
     </script>
-    <!-- Google anatlitics -->
      
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -944,11 +948,7 @@
 
             const formData = new FormData(this);
 
-            // ⭐⭐⭐ ENTER YOUR FORMSPREE FORM ID BELOW ⭐⭐⭐
-            // Replace YOUR_ID_HERE with your real Formspree form endpoint
-            const FORMSPREE_URL = "https://formspree.io/f/mzznvojp";
-
-            const response = await fetch(FORMSPREE_URL, {
+            const response = await fetch(CONFIG.FORMSPREE_URL, {
                 method: "POST",
                 body: formData,
                 headers: { "Accept": "application/json" }
