@@ -30,6 +30,8 @@
             box-sizing: border-box;
         }
 
+        html, body { overflow-x: hidden; }
+
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #4facfe 0%, #0a4a4e 100%);
@@ -577,36 +579,22 @@
             .menu-toggle {
                 display: flex;
             }
-@media (max-width: 768px) {
 
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: 0;
-
-        width: 250px;
-        max-width: 80vw;
-        height: 100vh;
-
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: none;
-
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        padding: 2rem;
-
-        transform: translateX(100%);   /* 🔥 fully hidden */
-        transition: transform 0.3s ease;
-
-        z-index: 1000;
-    }
-
-    .nav-links.active {
-        transform: translateX(0);      /* 🔥 slides in clean */
-    }
-
-}
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 250px;
+                height: calc(100vh - 70px);
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: none;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 2rem;
+                gap: 1.5rem;
+                transition: right 0.3s;
+                border-left: 1px solid rgba(0, 0, 0, 0.1);
+            }
 
             body.dark .nav-links {
                 background: rgba(22, 33, 62, 0.95);
