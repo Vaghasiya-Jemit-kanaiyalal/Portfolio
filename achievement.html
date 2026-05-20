@@ -24,6 +24,104 @@
         rel="stylesheet">
     <title>Achievements - Jemit Vaghasiya</title>
     <style>
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .tab-btn {
+            padding: 0.8rem 2.5rem;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .tab-btn:hover { border-color: rgba(255,215,0,0.5); }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #2c3e50;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.4);
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* Badges Grid */
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .badge-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.dark .badge-card { background: rgba(22,33,62,0.4); border: 3px solid rgba(255,255,255,0.2); }
+
+        .badge-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+            border-color: rgba(255,215,0,0.5);
+        }
+
+        .badge-card img {
+            width: 100%;
+            max-width: 180px;
+            height: 180px;
+            object-fit: contain;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .badge-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffd700;
+            letter-spacing: 0.3px;
+        }
+
+        .badge-issuer {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.85);
+            margin-top: 0.3rem;
+            font-weight: 500;
+        }
+
+        .badge-placeholder {
+            width: 100%;
+            max-width: 180px;
+            height: 180px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            margin: 0 auto 1rem;
+        }
+
         /* Reset */
         * {
             margin: 0;
@@ -511,6 +609,7 @@
                 <li><a href="index.html" onclick="closeMenu()">Home</a></li>
                 <li><a href="education.html" onclick="closeMenu()">Education</a></li>
                 <li><a href="projects.html" onclick="closeMenu()">Projects</a></li>
+                <li><a href="skills.html" onclick="closeMenu()">Skills</a></li>
                 <li><a href="achievement.html" onclick="closeMenu()">Achievements</a></li>
                 <li><a href="certification.html" onclick="closeMenu()">Certifications</a></li>
                 <li><a href="contact.html" onclick="closeMenu()">Contact Me</a></li>
@@ -530,6 +629,14 @@
             <h1 class="page-title">MY ACHIEVEMENTS</h1>
             <p class="page-subtitle">Professional Achievements & Credentials</p>
 
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('achievements', this)">🏆 Achievements</button>
+                <button class="tab-btn" onclick="switchTab('badges', this)">🎖️ Badges & Honors</button>
+            </div>
+
+            <!-- Achievements Tab -->
+            <div class="tab-content active" id="tab-achievements">
             <div class="certifications-grid">
 
                 <!-- Certificate Card 1 -->
@@ -622,10 +729,59 @@
                         📜 View Certificate
                     </a>
                 </div>
-               
-
-
             </div>
+            </div>
+            <!-- /Achievements Tab -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Badges tab start -->
+            <!-- Badges & Honors Tab -->
+            <div class="tab-content" id="tab-badges">
+                <div class="badges-grid">
+
+                    <!-- badge -1 -->
+                        <div class="badge-card">
+                        <img src="Badges/GFG.png" alt="Badge Name">
+                        <div class="badge-name">60 Days Coding</div>
+                        <div class="badge-issuer">GeeksforGeeks</div>
+                    </div>
+
+                    <!-- badge -2 -->
+                        <div class="badge-card">
+                        <img src="Badges/GsSOC_open.png" alt="Badge Name">
+                        <div class="badge-name">GsSOC Open Source</div>
+                        <div class="badge-issuer">GSSoc'26</div>
+                    </div>
+
+                    <!-- badge -3 -->
+                        <div class="badge-card">
+                        <img src="Badges/GsSOC_contributor.png" alt="Badge Name">
+                        <div class="badge-name">GsSOC Contributor</div>
+                        <div class="badge-issuer">GSSoc'26</div>
+                    </div>
+
+                     
+
+                </div>
+            </div>
+            <!-- /Badges & Honors Tab -->
+
         </div>
     </main>
 
@@ -711,6 +867,13 @@
                 closeMenu();
             }
         });
+
+        function switchTab(tab, btn) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('tab-' + tab).classList.add('active');
+            btn.classList.add('active');
+        }
     </script>
 </body>
 
