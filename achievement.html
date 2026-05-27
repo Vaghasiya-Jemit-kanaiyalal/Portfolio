@@ -34,9 +34,9 @@
 
         .tab-btn {
             padding: 0.8rem 2.5rem;
-            background: rgba(255,255,255,0.15);
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
-            border: 2px solid rgba(255,255,255,0.3);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 50px;
             color: white;
             font-family: 'Poppins', sans-serif;
@@ -47,17 +47,24 @@
             letter-spacing: 0.5px;
         }
 
-        .tab-btn:hover { border-color: rgba(255,215,0,0.5); }
+        .tab-btn:hover {
+            border-color: rgba(255, 215, 0, 0.5);
+        }
 
         .tab-btn.active {
             background: linear-gradient(135deg, #ffd700, #ffed4e);
             color: #2c3e50;
             border-color: transparent;
-            box-shadow: 0 4px 15px rgba(255,215,0,0.4);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
         }
 
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
 
         /* Badges Grid */
         .badges-grid {
@@ -68,22 +75,25 @@
         }
 
         .badge-card {
-            background: rgba(255,255,255,0.15);
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border: 3px solid rgba(255,255,255,0.3);
+            border: 3px solid rgba(255, 255, 255, 0.3);
             border-radius: 20px;
             padding: 1.5rem;
             text-align: center;
             transition: all 0.3s ease;
         }
 
-        body.dark .badge-card { background: rgba(22,33,62,0.4); border: 3px solid rgba(255,255,255,0.2); }
+        body.dark .badge-card {
+            background: rgba(22, 33, 62, 0.4);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
 
         .badge-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-            border-color: rgba(255,215,0,0.5);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 215, 0, 0.5);
         }
 
         .badge-card img {
@@ -104,7 +114,7 @@
 
         .badge-issuer {
             font-size: 0.95rem;
-            color: rgba(255,255,255,0.85);
+            color: rgba(255, 255, 255, 0.85);
             margin-top: 0.3rem;
             font-weight: 500;
         }
@@ -113,7 +123,7 @@
             width: 100%;
             max-width: 180px;
             height: 180px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -129,7 +139,10 @@
             box-sizing: border-box;
         }
 
-        html, body { overflow-x: hidden; }
+        html,
+        body {
+            overflow-x: hidden;
+        }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -639,99 +652,109 @@
 
             <!-- Achievements Tab -->
             <div class="tab-content active" id="tab-achievements">
-            <div class="certifications-grid">
+                <div class="certifications-grid">
 
-                <!-- Certificate Card 1 -->
-                <div class="certificate-card">
-                    <div class="certificate-icon">💻</div>
-                    <h2 class="certificate-name">Mind Sprint Hackathon </h2>
-                    <h3 class="certificate-issuer">Unstop</h3>
-                    <p class="certificate-description">A Blood Donation website developed to streamline the process of connecting blood donors with recipients, ensuring timely and efficient blood donations.</p>
-                    <a href="https://unstop.com/certificate-preview/9b30bd69-a803-43da-8343-555a29f08410?utm_campaign=site-emails"
-                        target="_blank" class="view-certificate-btn">
-                        📜 View Certificate
-                    </a>
-                </div>
-
-
-                <!-- card -2 -->
-                <div class="certificate-card">
-                    <div class="certificate-icon">💻</div>
-                    <h2 class="certificate-name"> DU HACKS</h2>
-                    <h3 class="certificate-issuer">DDU - GDG</h3>
-                    <p class="certificate-description">An AI-based scholarship recommendation system that helps students find scholarships matching their profile. It shows the percentage of eligibility for each scholarship and explains the reasons if a scholarship does not match. It was created during DU Hacks to make scholarship discovery easier and more transparent for students.</p>
-                    <a href="Certi/DU'Hacks.png" target="_blank" class="view-certificate-btn">
-                        📜 View Certificate
-                    </a>
-                </div>
-
-                <!-- card -3 -->
-                <div class="certificate-card">
-                    <div class="certificate-icon">💻</div>
-                    <h2 class="certificate-name">Code Quest </h2>
-                    <h3 class="certificate-issuer">DEPSTAR</h3>
-                    <p class="certificate-description">A Hackathon type event including coding in first round and offline coding for competitive programming in second round.</p>
-                    <a href="Certi/CodeQuest.pdf" target="_blank" class="view-certificate-btn">
-                        📜 View Certificate
-                    </a>
-                </div>
-
-
-                <!--  Card 4 -->
-                <div class="certificate-card">
-                    <div class="certificate-icon">🎓</div>
-                    <h2 class="certificate-name">Education with AI tools</h2>
-                    <h3 class="certificate-issuer">Webinar</h3>
-                    <p class="certificate-description">
-                        Learnt how to use Ai tools to make efficent work and consume less time in this "AI World".
-                    </p>
-                    <a href="Certi/AI.pdf" target="_blank" class="view-certificate-btn">
-                        📜 View Certificate
-                    </a>
-                </div>
-
-
-
-                <!--  Card 5 -->
-                <div class="certificate-card">
-                    <div class="certificate-icon">🔐</div>
-                    <h2 class="certificate-name">Cybersecurity Awareness</h2>
-                    <h3 class="certificate-issuer">Seminar</h3>
-                    <p class="certificate-description">
-                        Understanding cybersecurity principles, threat identification and importance of security.
-                        <a href="Certi/cyber.pdf" target="_blank" class="view-certificate-btn">
+                    <!-- Certificate Card 1 -->
+                    <div class="certificate-card">
+                        <div class="certificate-icon">💻</div>
+                        <h2 class="certificate-name">Mind Sprint Hackathon </h2>
+                        <h3 class="certificate-issuer">Unstop</h3>
+                        <p class="certificate-description">A Blood Donation website developed to streamline the process
+                            of connecting blood donors with recipients, ensuring timely and efficient blood donations.
+                        </p>
+                        <a href="https://unstop.com/certificate-preview/9b30bd69-a803-43da-8343-555a29f08410?utm_campaign=site-emails"
+                            target="_blank" class="view-certificate-btn">
                             📜 View Certificate
                         </a>
+                    </div>
+
+
+                    <!-- card -2 -->
+                    <div class="certificate-card">
+                        <div class="certificate-icon">💻</div>
+                        <h2 class="certificate-name"> DU HACKS</h2>
+                        <h3 class="certificate-issuer">DDU - GDG</h3>
+                        <p class="certificate-description">An AI-based scholarship recommendation system that helps
+                            students find scholarships matching their profile. It shows the percentage of eligibility
+                            for each scholarship and explains the reasons if a scholarship does not match. It was
+                            created during DU Hacks to make scholarship discovery easier and more transparent for
+                            students.</p>
+                        <a href="Certi/DU'Hacks.png" target="_blank" class="view-certificate-btn">
+                            📜 View Certificate
+                        </a>
+                    </div>
+
+                    <!-- card -3 -->
+                    <div class="certificate-card">
+                        <div class="certificate-icon">💻</div>
+                        <h2 class="certificate-name">Code Quest </h2>
+                        <h3 class="certificate-issuer">DEPSTAR</h3>
+                        <p class="certificate-description">A Hackathon type event including coding in first round and
+                            offline coding for competitive programming in second round.</p>
+                        <a href="Certi/CodeQuest.pdf" target="_blank" class="view-certificate-btn">
+                            📜 View Certificate
+                        </a>
+                    </div>
+
+
+                    <!--  Card 4 -->
+                    <div class="certificate-card">
+                        <div class="certificate-icon">🎓</div>
+                        <h2 class="certificate-name">Education with AI tools</h2>
+                        <h3 class="certificate-issuer">Webinar</h3>
+                        <p class="certificate-description">
+                            Learnt how to use Ai tools to make efficent work and consume less time in this "AI World".
+                        </p>
+                        <a href="Certi/AI.pdf" target="_blank" class="view-certificate-btn">
+                            📜 View Certificate
+                        </a>
+                    </div>
+
+
+
+                    <!--  Card 5 -->
+                    <div class="certificate-card">
+                        <div class="certificate-icon">🔐</div>
+                        <h2 class="certificate-name">Cybersecurity Awareness</h2>
+                        <h3 class="certificate-issuer">Seminar</h3>
+                        <p class="certificate-description">
+                            Understanding cybersecurity principles, threat identification and importance of security.
+                            <a href="Certi/cyber.pdf" target="_blank" class="view-certificate-btn">
+                                📜 View Certificate
+                            </a>
+                    </div>
+
+                    <!--  Card 6 -->
+                    <div class="certificate-card">
+                        <div class="certificate-icon">🎨</div>
+
+                        <h2 class="certificate-name">Extracurricular Activity</h2>
+
+                        <h3 class="certificate-issuer">CHARUSAT EOC (2025)</h3>
+
+                        <p class="certificate-description">Participated in an Online Digital Poster Making Competition
+                            on "Assistive Technology for Differently Abled," organized by the Equal Opportunity Cell
+                            (EOC), CHARUSAT.</p>
+                        <a href="Certi/Poster Making.pdf" target="_blank" class="view-certificate-btn">
+                            📜 View Certificate
+                        </a>
+                    </div>
+
+                    <!--  Card 7-->
+                    <div class="certificate-card">
+                        <div class="certificate-icon">🎨</div>
+
+                        <h2 class="certificate-name">Extracurricular Activity</h2>
+
+                        <h3 class="certificate-issuer">CZX - Alice in Bordeland</h3>
+
+                        <p class="certificate-description">Participated in CognizanceX 2026 event “Alice in Borderland,”
+                            engaging in teamwork-based activities and mind-game challenges. </p>
+                        <a href="Certi/Alice in Borderland_CZX.jpg" target="_blank" class="view-certificate-btn">
+                            📜 View Certificate
+                        </a>
+                    </div>
                 </div>
-
-                <!--  Card 6 -->
-                <div class="certificate-card">
-                    <div class="certificate-icon">🎨</div>
-
-                    <h2 class="certificate-name">Extracurricular Activity</h2>
-
-                    <h3 class="certificate-issuer">CHARUSAT EOC (2025)</h3>
-
-                    <p class="certificate-description">Participated in an Online Digital Poster Making Competition on "Assistive Technology for Differently Abled," organized by the Equal Opportunity Cell (EOC), CHARUSAT.</p>
-                    <a href="Certi/Poster Making.pdf" target="_blank" class="view-certificate-btn">
-                        📜 View Certificate
-                    </a>
-                </div>
-
-                <!--  Card 7-->
-                <div class="certificate-card">
-                    <div class="certificate-icon">🎨</div>
-
-                    <h2 class="certificate-name">Extracurricular Activity</h2>
-
-                    <h3 class="certificate-issuer">CZX - Alice in Bordeland</h3>
-
-                    <p class="certificate-description">Participated in CognizanceX 2026 event “Alice in Borderland,” engaging in teamwork-based activities and mind-game challenges. </p>
-                    <a href="Certi/Alice in Borderland_CZX.jpg" target="_blank" class="view-certificate-btn">
-                        📜 View Certificate
-                    </a>
-                </div>
-            </div>
             </div>
             <!-- /Achievements Tab -->
 
@@ -752,62 +775,67 @@
 
 
 
-<!-- Badges tab start -->
+            <!-- Badges tab start -->
             <!-- Badges & Honors Tab -->
             <div class="tab-content" id="tab-badges">
                 <div class="badges-grid">
 
                     <!-- badge -1 -->
-                        <div class="badge-card">
+                    <div class="badge-card">
                         <img src="Badges/GFG.png" alt="Badge Name">
                         <div class="badge-name">60 Days Coding</div>
                         <div class="badge-issuer">GeeksforGeeks</div>
                     </div>
 
                     <!-- badge -2 -->
-                        <div class="badge-card">
+                    <div class="badge-card">
                         <img src="Badges/GsSOC_open.png" alt="Badge Name">
                         <div class="badge-name">GSSoC Open Source</div>
                         <div class="badge-issuer">GSSoc'26</div>
                     </div>
 
                     <!-- badge -3 -->
-                        <div class="badge-card">
+                    <div class="badge-card">
                         <img src="Badges/gssoc-badge-role_contributor.png" alt="Badge Name">
                         <div class="badge-name">GSSoC Contributor</div>
                         <div class="badge-issuer">GSSoc'26</div>
                     </div>
 
-                      <!-- badge -4 -->
-                        <div class="badge-card">
+                    <!-- badge -4 -->
+                    <div class="badge-card">
                         <img src="Badges/GsSOC_Point Score.png" alt="Badge Name">
                         <div class="badge-name">GSSoC Point Score</div>
                         <div class="badge-issuer">GSSoc'26</div>
                     </div>
 
-                      <!-- badge -5 -->
-                        <div class="badge-card">
+                    <!-- badge -5 -->
+                    <div class="badge-card">
                         <img src="Badges//GsSOC_First Step.png" alt="Badge Name">
                         <div class="badge-name">GSSoC First Step</div>
                         <div class="badge-issuer">GSSoc'26</div>
                     </div>
 
-                      <!-- badge -6 -->
-                        <div class="badge-card">
+                    <!-- badge -6 -->
+                    <div class="badge-card">
                         <img src="Badges//GsSOC_Point Score.png" alt="Badge Name">
                         <div class="badge-name">GSSoC Point Scorer</div>
                         <div class="badge-issuer">GSSoc'26</div>
                     </div>
 
                     <!-- badge -7 -->
-                        <div class="badge-card">
+                    <div class="badge-card">
                         <img src="Badges/GSSoC_Week_One.png" alt="Badge Name">
                         <div class="badge-name">GSSoC Week One</div>
                         <div class="badge-issuer">GSSoc'26</div>
                     </div>
 
+                    <!-- badge -8 -->
+                    <div class="badge-card">
+                        <img src="Badges/GSSoC_5_PR.png" alt="Badge Name">
+                        <div class="badge-name">GSSoC 5 PRs Merged</div>
+                        <div class="badge-issuer">GSSoc'26</div>
+                    </div>
 
-                     
 
                 </div>
             </div>
